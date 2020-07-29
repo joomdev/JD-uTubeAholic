@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>JD uTubeAholic</name>
+    <creationDate>October 2019</creationDate>
+    <version>1.0.1</version>
+    <author>JoomDev (Formerly GraphicAholic)</author>
+    <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>info@joomdev.com</authorEmail>
+    <authorUrl>https://www.joomdev.com</authorUrl>
+	<description>
+	<![CDATA[
+		<div class="alert alert-info" style="font-weight: normal;">
+			<img src="../modules/mod_utubeaholic/images/uTubeAholic_01_500px.jpg" alt="JD uTubeAholic"/>
+            <h3>JD uTubeAholic</h3>
+            <p>JD uTubeAholic is a Joomla Module that allows you to create responsive YouTube video gallery easily on your Joomla website.</p>
+            <p>JD uTubeAholic formerly known as uTubeAholic  from Graphicaholic is now moved to JoomDev along with other Extensions. <strong>Check out the <a href="https://www.joomdev.com/graphicaholic" target="_blank">Announcement here.</a></strong></p>
+			<a href="https://www.joomdev.com/forum/jd-utubeaholic" target="_blank">Support</a> | <span>Demo</span> | <a href="https://www.joomdev.com/products/extensions/jd-utubeaholic" target="_blank">More Details</a>
+		</div>
+	]]>
+	</description>
+    <files>
+        <filename module="mod_utubeaholic">mod_utubeaholic.php</filename>
+        <folder>js</folder>
+        <folder>css</folder>
+        <folder>tmpl</folder>
+        <folder>fields</folder>
+        <folder>images</folder>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <filename>mod_utubeaholic.xml</filename>
+    </files>
+
+    <updateservers>
+        <server type="extension" priority="1" name="JD uTubeAholic">https://joomdev.com/updates/utubeaholic.xml</server>
+    </updateservers>
+
+    <config>
+        <fields name="params" addfieldpath="/modules/mod_utubeaholic/fields">
+            <!-- General Settings -->
+            <fieldset name="general" group="general" label="General Settings">
+                <field name="apiKey" type="textarea" default="" label="YouTube API Key" description="Required" />
+                <field name="playlistID" type="textarea" default="" label="YouTube Playlist ID" description="Required - Your playlist id, it's can be a user playist id or a user last entries playlist if no argument submit spidochetube will display the last google devlopper channel entries" />
+                <field name="max_results" type="text" default="8" label="Videos to display" description="1-50 - 50 results per page/load maximum (youtube api limitation)" />
+                <field name="loadmoreButton" type="list" default="1" label="Display Load More Button?" description="Adjust to your specific needs">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="moreText" type="text" showon="loadmoreButton:1" default="Load more" label="Load More button text" description="Adjust to your specific needs" />
+                <field name="autoPlay" type="list" default="false" label="Auto play default video?" description="Set to Yes if you want to autoplay the videos">
+                    <option value="true">JYES</option>
+                    <option value="false">JNO</option>
+                </field>
+                <field name="scroll_duration" type="text" default="500" label="Scrolling speed" description="The speed of the scroll animation after clicking on a video item, useful if you have a long list on videos and the player on the top" />
+                <field name="relatedVideos" type="list" default="&#47;?" label="Show related videos?" description="Set to Yes to show related videos at the end of each play. Set to No to not show related videos at the end. This option is not fully supported with the latest YouTube API. However, it still seems to work... sometines!">
+                    <option value="&#47;?">JYES</option>
+                    <option value="&#47;?rel=0&#38;">JNO</option>
+                </field>
+            </fieldset>
+            <!-- General Styling -->
+            <fieldset name="styling" group="styling" label="General Styling">
+                <field name="playerbackgroundColor" type="truecolors" default="rgb(91,102,116,1)" format="rgb" opacity="1.0" label="Player background color" description="Adjust to your specific needs" />
+                <field name="playerboxshadowEffect" type="truecolors" default="rgb(0,0,0,0.5)" format="rgb" opacity="1.0" label="Player box shadow effect" description="Adjust to your specific needs" />
+                <field name="thumbhiliteColor" type="truecolors" default="rgb(91,102,116,1)" format="rgb" opacity="1.0" label="Thumbnail hilite color" description="Adjust to your specific needs" />
+                <field name="thumbbackgroundColor" type="truecolors" default="rgb(239,241,245,1)" format="rgb" opacity="1.0" label="Thumbnail background color" description="Adjust to your specific needs" />
+            </fieldset>
+            <!-- Advanced Settings -->
+            <fieldset name="advanced" group="advanced">
+                <field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="fieldMODULECLASSSUFFIX" />
+                <field name="cache" type="radio" class="btn-group" default="1" label="Caching" description="Select whether to cache the content of this module">
+                    <option value="1">Use global</option>
+                    <option value="0">No caching</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+                <field name="documentation" type="docs" default="900" label="" description="" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
